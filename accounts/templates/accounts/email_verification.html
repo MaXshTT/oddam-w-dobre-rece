@@ -1,0 +1,6 @@
+{% autoescape off %}
+Cześć {{ user.first_name }},
+Kliknij link, aby potwierdzić rejestrację,
+http://{{ domain }}{% url 'activate' uidb64=uid token=token %}
+Jeśli uważasz, że to nie ty, zignoruj ​​ten e-mail.
+{% endautoescape %}

@@ -1,0 +1,10 @@
+{% extends 'charitydonation_app/base.html' %}
+{% load static %}
+{% block header %}header--form-page{% endblock header %}
+{% block slogan %}
+  <div class="message container container--90">
+    <h2>
+      {{ message|linebreaks }}
+    </h2>
+  </div>
+{% endblock slogan %}

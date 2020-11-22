@@ -1,0 +1,43 @@
+{% extends 'charitydonation_app/base.html' %}
+{% load widget_tweaks %}
+{% block section %}
+    <section class="login-page">
+      <h2>Załóż konto</h2>
+      <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+          {{ form.first_name|attr:"placeholder:Imię"|attr:"autofocus" }}
+          {{ form.first_name.errors }}
+        </div>
+          <div class="form-group">
+          {{ form.last_name|attr:"placeholder:Nazwisko" }}
+          {{ form.last_name.errors }}
+        </div>
+        <div class="form-group">
+          {{ form.email|attr:"placeholder:Email" }}
+          {{ form.email.errors }}
+        </div>
+        <div class="form-group">
+          {{ form.password1|attr:"placeholder:Hasło" }}
+          {{ form.password1.errors }}
+        </div>
+        <div class="form-group">
+          {{ form.password2|attr:"placeholder:Powtórz hasło" }}
+          {{ form.password2.errors }}
+        </div>
+
+        {% if messages %}
+        <div class="alert-message">
+          {% for message in messages %}
+          {{ message }}
+          {% endfor %}
+        </div>
+        {% endif %}
+
+        <div class="form-group form-group--buttons">
+          <a href="{% url 'login' %}" class="btn btn--without-border">Zaloguj się</a>
+          <button class="btn" type="submit">Załóż konto</button>
+        </div>
+      </form>
+    </section>
+{% endblock section %}
